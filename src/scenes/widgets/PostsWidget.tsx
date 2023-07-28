@@ -36,10 +36,10 @@ const PostsWidget: React.FC<PostsWidgetProps> = ({
         },
       }
     );
-    const data = response.data;
-    console.log(data);
+    const posts = response.data;
+    console.log("data", posts);
 
-    dispatch(setPosts(data));
+    dispatch(setPosts({ posts }));
   };
 
   useEffect(() => {
@@ -47,14 +47,12 @@ const PostsWidget: React.FC<PostsWidgetProps> = ({
       getUserPosts();
     } else {
       getPosts();
-      console.log(posts);
     }
   }, []); //eslint-disable-line react-hooks/exhaustive-deps
 
-  //   if (!posts) {
-  //     return <div>Loading</div>;
-  //   }
-  console.log(posts);
+  if (!posts) {
+    return <div>Loading</div>;
+  }
 
   return (
     <>
