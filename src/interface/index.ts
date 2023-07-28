@@ -1,5 +1,5 @@
 export interface User {
-  id: number;
+  _id: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -13,7 +13,7 @@ export interface User {
 
 export interface State {
   user: User | null;
-  mode: string;
+  mode: "light" | "dark";
   token: string | null;
   posts: Array<Post>;
 }
@@ -31,4 +31,53 @@ export interface Post {
   comments: string[]; // Assuming comments is an array of strings
   createdAt: Date; // Automatically added by MongoDB timestamps
   updatedAt: Date; // Automatically added by MongoDB timestamps
+}
+
+export interface RegisterValues {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  location: string;
+  occupation: string;
+  picture: File;
+  [key: string]: string | File;
+}
+
+export interface LoginValues {
+  email: string;
+  password: string;
+}
+
+export interface UserWidgetProps {
+  userId: string;
+  picturePath: string;
+}
+
+export interface MyPostWidgetProps {
+  picturePath: string;
+}
+
+export interface PostsWidgetProps {
+  userId: string;
+  isProfile: boolean;
+}
+
+export interface FriendsProps {
+  friendId: string;
+  name: string;
+  subtitle: string;
+  userPicturePath: string;
+}
+
+export interface userIdProps {
+  userId: string;
+}
+
+export interface friendProps {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  occupation: string;
+  picturePath: string;
 }

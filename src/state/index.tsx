@@ -38,8 +38,14 @@ export const authSlice = createSlice({
         if (post._id === action.payload.post._id) {
           return action.payload.post;
         }
+        return post;
       });
       state.posts = updatePosts;
     },
   },
 });
+
+export const { setMode, setLogin, setLogout, setFriends, setPosts, setPost } =
+  authSlice.actions;
+
+export default authSlice.reducer;
